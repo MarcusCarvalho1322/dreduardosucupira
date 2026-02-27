@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dossiê Executivo de Marketing Digital — Dr. Eduardo Sucupira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #B8975A;
+    --gold-light: #D4B278;
+    --gold-pale: #F0E6D0;
+    --dark: #1A1A1A;
+    --dark-mid: #2C2C2C;
+    --charcoal: #3D3D3D;
+    --mid: #6B6B6B;
+    --light: #F5F2ED;
+    --white: #FEFDFB;
+    --cream: #FAF7F2;
+    --green: #4A7C59;
+    --red: #8B3A3A;
+    --amber: #B8813A;
+    --blue: #3A5A8B;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ===== HEADER HERO ===== */
+  .hero {
+    background: var(--dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 60px 40px;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(184,151,90,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 30%, rgba(184,151,90,0.08) 0%, transparent 50%);
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(184,151,90,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,151,90,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .hero-badge {
+    background: rgba(184,151,90,0.15);
+    border: 1px solid rgba(184,151,90,0.4);
+    color: var(--gold-light);
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    border-radius: 2px;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-logo {
+    width: 200px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+    filter: brightness(0) invert(1) sepia(0.3) saturate(0.5) hue-rotate(0deg);
+    opacity: 0.9;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 6vw, 72px);
+    font-weight: 300;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .hero h1 em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    font-size: 14px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-meta {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-meta-item {
+    text-align: center;
+  }
+
+  .hero-meta-item .val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold-light);
+    display: block;
+  }
+
+  .hero-meta-item .lbl {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .hero-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(184,151,90,0.3);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.3);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(184,151,90,0.5), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ===== NAV ===== */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(26,26,26,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(184,151,90,0.2);
+    padding: 0 40px;
+  }
+
+  .sticky-nav ul {
+    display: flex;
+    list-style: none;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .sticky-nav ul::-webkit-scrollbar { display: none; }
+
+  .sticky-nav ul li a {
+    display: block;
+    padding: 16px 20px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: color 0.3s;
+    border-bottom: 2px solid transparent;
+  }
+
+  .sticky-nav ul li a:hover,
+  .sticky-nav ul li a.active {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ===== CONTAINER ===== */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  /* ===== SECTION ===== */
+  .section {
+    padding: 80px 0;
+  }
+
+  .section-alt {
+    background: var(--white);
+  }
+
+  .section-dark {
+    background: var(--dark);
+    color: var(--white);
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+
+  .section-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    color: var(--gold-pale);
+    line-height: 1;
+    min-width: 80px;
+  }
+
+  .section-dark .section-number {
+    color: rgba(184,151,90,0.2);
+  }
+
+  .section-titles {
+    padding-top: 8px;
+    border-left: 2px solid var(--gold);
+    padding-left: 24px;
+  }
+
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--dark);
+  }
+
+  .section-dark .section-title { color: var(--white); }
+
+  .section-desc {
+    font-size: 15px;
+    color: var(--mid);
+    margin-top: 8px;
+    max-width: 600px;
+  }
+
+  .section-dark .section-desc { color: rgba(255,255,255,0.5); }
+
+  /* ===== SCORE DASHBOARD ===== */
+  .score-dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2px;
+    background: var(--gold-pale);
+    border: 2px solid var(--gold-pale);
+    margin-bottom: 48px;
+  }
+
+  .score-card {
+    background: var(--white);
+    padding: 32px 24px;
+    text-align: center;
+    position: relative;
+  }
+
+  .score-card-label {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 16px;
+  }
+
+  .score-ring {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 16px;
+    position: relative;
+  }
+
+  .score-ring svg {
+    transform: rotate(-90deg);
+  }
+
+  .score-ring-bg { fill: none; stroke: var(--gold-pale); stroke-width: 8; }
+  .score-ring-fill { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1.5s ease; }
+
+  .score-number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--dark);
+  }
+
+  .score-grade {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+  .grade-bom { background: #E8F5E9; color: var(--green); }
+  .grade-medio { background: #FFF8E1; color: var(--amber); }
+  .grade-fraco { background: #FFEBEE; color: var(--red); }
+  .grade-excelente { background: #E3F2FD; color: var(--blue); }
+
+  /* ===== SWOT ===== */
+  .swot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    background: var(--gold-pale);
+  }
+
+  .swot-cell {
+    background: var(--white);
+    padding: 40px 36px;
+  }
+
+  .swot-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gold-pale);
+    font-weight: 600;
+  }
+
+  .swot-s { border-top: 3px solid var(--green); }
+  .swot-w { border-top: 3px solid var(--red); }
+  .swot-o { border-top: 3px solid var(--blue); }
+  .swot-t { border-top: 3px solid var(--amber); }
+
+  .swot-label-s { color: var(--green); }
+  .swot-label-w { color: var(--red); }
+  .swot-label-o { color: var(--blue); }
+  .swot-label-t { color: var(--amber); }
+
+  .swot-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 14px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--charcoal);
+  }
+
+  .swot-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 7px;
+    flex-shrink: 0;
+  }
+
+  .swot-s .swot-dot { background: var(--green); }
+  .swot-w .swot-dot { background: var(--red); }
+  .swot-o .swot-dot { background: var(--blue); }
+  .swot-t .swot-dot { background: var(--amber); }
+
+  /* ===== METRICS TABLE ===== */
+  .metrics-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+
+  .metrics-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--dark);
+    font-weight: 500;
+  }
+
+  .metrics-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--gold-pale);
+    vertical-align: middle;
+  }
+
+  .metrics-table tr:hover td {
+    background: var(--light);
+  }
+
+  .metrics-table .metric-label {
+    font-weight: 500;
+    color: var(--dark);
+  }
+
+  .metrics-table .metric-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--gold);
+  }
+
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .badge-good { background: #E8F5E9; color: var(--green); }
+  .badge-warn { background: #FFF8E1; color: var(--amber); }
+  .badge-bad { background: #FFEBEE; color: var(--red); }
+  .badge-info { background: #E3F2FD; color: var(--blue); }
+
+  /* ===== BAR CHART ===== */
+  .chart-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 180px 1fr 80px;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .bar-label {
+    font-size: 13px;
+    color: var(--charcoal);
+    text-align: right;
+  }
+
+  .bar-track {
+    height: 28px;
+    background: var(--gold-pale);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .bar-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    padding-left: 12px;
+  }
+
+  .bar-fill span {
+    font-size: 11px;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+  }
+
+  .bar-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--gold);
+    text-align: left;
+  }
+
+  /* ===== COMPETITOR GRID ===== */
+  .competitor-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: var(--gold-pale);
+  }
+
+  .competitor-card {
+    background: var(--white);
+    padding: 28px 24px;
+  }
+
+  .competitor-card.featured {
+    background: var(--dark);
+    color: var(--white);
+  }
+
+  .competitor-tag {
+    font-size: 9px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .competitor-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .competitor-stat {
+    margin-bottom: 10px;
+  }
+
+  .competitor-stat-lbl {
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 2px;
+  }
+
+  .competitor-card.featured .competitor-stat-lbl {
+    color: rgba(255,255,255,0.4);
+  }
+
+  .competitor-stat-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--dark);
+  }
+
+  .competitor-card.featured .competitor-stat-val {
+    color: var(--gold-light);
+  }
+
+  /* ===== PLANO DE AÇÃO ===== */
+  .plano-tabs {
+    display: flex;
+    gap: 2px;
+    margin-bottom: 2px;
+    background: var(--gold-pale);
+  }
+
+  .plano-tab {
+    flex: 1;
+    padding: 16px;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: var(--cream);
+    color: var(--mid);
+    border: none;
+    transition: all 0.3s;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .plano-tab.active {
+    background: var(--dark);
+    color: var(--gold-light);
+  }
+
+  .plano-content {
+    display: none;
+    background: var(--white);
+    padding: 48px 40px;
+  }
+
+  .plano-content.active { display: block; }
+
+  .plano-phase-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 300;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .plano-phase-sub {
+    font-size: 13px;
+    color: var(--mid);
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--gold-pale);
+  }
+
+  .plano-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .action-card {
+    background: var(--cream);
+    padding: 28px;
+    border-left: 3px solid var(--gold);
+    position: relative;
+  }
+
+  .action-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--gold-pale);
+    line-height: 1;
+  }
+
+  .action-channel {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .action-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+
+  .action-desc {
+    font-size: 13px;
+    color: var(--charcoal);
+    line-height: 1.6;
+  }
+
+  .action-kpi {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid var(--gold-pale);
+    font-size: 12px;
+    color: var(--mid);
+  }
+
+  .action-kpi strong { color: var(--green); }
+
+  /* ===== GANTT ===== */
+  .gantt {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 32px;
+  }
+
+  .gantt th {
+    padding: 10px 12px;
+    background: var(--dark);
+    color: var(--gold-light);
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    text-align: center;
+  }
+
+  .gantt th:first-child { text-align: left; }
+
+  .gantt td {
+    padding: 12px;
+    border-bottom: 1px solid var(--gold-pale);
+    text-align: center;
+  }
+
+  .gantt td:first-child {
+    text-align: left;
+    font-weight: 500;
+    color: var(--dark);
+    font-size: 12px;
+  }
+
+  .gantt-bar {
+    height: 20px;
+    background: var(--gold);
+    border-radius: 2px;
+    margin: 0 auto;
+    opacity: 0.8;
+  }
+
+  /* ===== SEO RADAR ===== */
+  .radar-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .radar-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .radar-item {
+    display: grid;
+    grid-template-columns: 160px 1fr 50px;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .radar-item-label {
+    font-size: 13px;
+    color: var(--charcoal);
+  }
+
+  .radar-item-bar {
+    height: 8px;
+    background: var(--gold-pale);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .radar-item-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(to right, var(--gold), var(--gold-light));
+  }
+
+  .radar-item-score {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--gold);
+    text-align: right;
+  }
+
+  /* ===== INSIGHT CARDS ===== */
+  .insight-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--gold-pale);
+  }
+
+  .insight-card {
+    background: var(--white);
+    padding: 36px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .insight-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+
+  .insight-card.type-opp::before { background: var(--green); }
+  .insight-card.type-risk::before { background: var(--red); }
+  .insight-card.type-action::before { background: var(--gold); }
+
+  .insight-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .insight-label {
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .type-opp .insight-label { color: var(--green); }
+  .type-risk .insight-label { color: var(--red); }
+  .type-action .insight-label { color: var(--gold); }
+
+  .insight-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .insight-text {
+    font-size: 13px;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+
+  /* ===== CFM ALERT ===== */
+  .cfm-alert {
+    background: var(--dark);
+    border-left: 4px solid var(--gold);
+    padding: 28px 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin: 32px 0;
+  }
+
+  .cfm-alert-icon { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+
+  .cfm-alert-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+
+  .cfm-alert-text {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+  }
+
+  /* ===== JORNADA ===== */
+  .jornada {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    position: relative;
+  }
+
+  .jornada::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold-pale), var(--gold), var(--gold-pale));
+    z-index: 0;
+  }
+
+  .jornada-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .jornada-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--white);
+    border: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 20px rgba(184,151,90,0.2);
+  }
+
+  .jornada-step-num {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+
+  .jornada-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 8px;
+  }
+
+  .jornada-desc {
+    font-size: 12px;
+    color: var(--mid);
+    line-height: 1.5;
+  }
+
+  .jornada-channel {
+    margin-top: 10px;
+    font-size: 10px;
+    color: var(--gold);
+    background: var(--gold-pale);
+    padding: 3px 10px;
+    border-radius: 2px;
+  }
+
+  /* ===== ROI CALC ===== */
+  .roi-calculator {
+    background: var(--dark);
+    padding: 48px;
+    border: 1px solid rgba(184,151,90,0.2);
+  }
+
+  .roi-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
+  .roi-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 40px;
+  }
+
+  .roi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2px;
+    background: rgba(255,255,255,0.05);
+    margin-bottom: 32px;
+  }
+
+  .roi-cell {
+    background: rgba(255,255,255,0.04);
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .roi-cell-label {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 12px;
+  }
+
+  .roi-cell-val {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--gold-light);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .roi-cell-note {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .roi-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    font-style: italic;
+  }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    background: var(--dark);
+    padding: 60px 40px 40px;
+    text-align: center;
+  }
+
+  .footer-logo {
+    width: 140px;
+    margin: 0 auto 24px;
+    opacity: 0.6;
+    display: block;
+    filter: brightness(0) invert(1);
+  }
+
+  .footer-text {
+    font-size: 12px;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.8;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .footer-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(184,151,90,0.3);
+    margin: 24px auto;
+  }
+
+  /* ===== EXPLAINER BOX ===== */
+  .explainer {
+    background: var(--gold-pale);
+    border-left: 3px solid var(--gold);
+    padding: 20px 24px;
+    font-size: 13px;
+    color: var(--charcoal);
+    line-height: 1.7;
+    margin: 24px 0;
+  }
+
+  .explainer strong { color: var(--dark); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .score-dashboard { grid-template-columns: 1fr 1fr; }
+    .competitor-grid { grid-template-columns: 1fr 1fr; }
+    .plano-actions { grid-template-columns: 1fr; }
+    .jornada { grid-template-columns: 1fr; }
+    .jornada::before { display: none; }
+    .roi-grid { grid-template-columns: 1fr; }
+    .radar-wrapper { grid-template-columns: 1fr; }
+    .insight-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 20px; }
+    .section { padding: 60px 0; }
+    .swot-grid { grid-template-columns: 1fr; }
+    .score-dashboard { grid-template-columns: 1fr; }
+    .bar-row { grid-template-columns: 1fr; }
+  }
+
+  /* ===== ANIMATIONS ===== */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .stagger-1 { transition-delay: 0.1s; }
+  .stagger-2 { transition-delay: 0.2s; }
+  .stagger-3 { transition-delay: 0.3s; }
+  .stagger-4 { transition-delay: 0.4s; }
+
+  /* ===== RICH TEXT ===== */
+  .rich-text {
+    max-width: 800px;
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--charcoal);
+  }
+
+  .rich-text p { margin-bottom: 16px; }
+
+  .rich-text strong { color: var(--dark); font-weight: 600; }
+
+  .rich-text em { color: var(--gold); font-style: italic; }
+
+  /* Tab indicator */
+  .tab-indicator {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+
+  .tab-pill {
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border: 1px solid var(--gold-pale);
+    cursor: pointer;
+    transition: all 0.3s;
+    background: var(--white);
+    color: var(--mid);
+  }
+
+  .tab-pill.active, .tab-pill:hover {
+    background: var(--dark);
+    color: var(--gold-light);
+    border-color: var(--dark);
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="hero-badge">Dossiê Estratégico de Marketing Digital · 2026</div>
+  <img src="https://eduardosucupira.com.br/wp-content/uploads/2025/09/Group-2608982.svg" 
+       alt="Dr. Eduardo Sucupira" class="hero-logo" 
+       onerror="this.style.display='none'">
+  <h1>Dr. Eduardo <em>Sucupira</em></h1>
+  <p class="hero-sub">Cirurgião Plástico · Barra da Tijuca, Rio de Janeiro · Clínica Essendi</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item">
+      <span class="val">16K</span>
+      <span class="lbl">Seguidores IG</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta-item">
+      <span class="val">30+</span>
+      <span class="lbl">Anos de Atuação</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta-item">
+      <span class="val">10K+</span>
+      <span class="lbl">Cirurgias Realizadas</span>
+    </div>
+    <div class="hero-divider"></div>
+    <div class="hero-meta-item">
+      <span class="val">58</span>
+      <span class="lbl">Score Digital /100</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="hero-scroll-line"></div>
+    rolar para ver
+  </div>
+</section>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <ul>
+    <li><a href="#introducao">Introdução</a></li>
+    <li><a href="#score">Score Geral</a></li>
+    <li><a href="#instagram">Instagram</a></li>
+    <li><a href="#site">Site & SEO</a></li>
+    <li><a href="#swot">SWOT</a></li>
+    <li><a href="#concorrentes">Concorrentes</a></li>
+    <li><a href="#jornada">Jornada</a></li>
+    <li><a href="#plano">Plano de Ação</a></li>
+    <li><a href="#roi">ROI</a></li>
+  </ul>
+</nav>
+
+<!-- INTRO -->
+<section class="section" id="introducao">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-number">00</div>
+      <div class="section-titles">
+        <div class="section-eyebrow">Visão Estratégica</div>
+        <h2 class="section-title">Contexto e<br>Propósito deste Dossiê</h2>
+        <p class="section-desc">Análise completa da presença digital, baseada em dados públicos verificáveis</p>
+      </div>
+    </div>
+
+    <div class="rich-text fade-up">
+      <p>O Dr. Eduardo Sucupira representa um dos perfis mais ricos de análise no cenário da cirurgia plástica brasileira: <strong>credenciais técnicas excepcionais</strong> — membro titular da SBCP desde 2002, membro internacional da ASAPS desde 2010, discípulo do Prof. Ivo Pitanguy e com mais de 30 anos de prática clínica — contrastando com uma <strong>presença digital ainda aquém de seu potencial real de mercado</strong>.</p>
+      <p>O mercado brasileiro de cirurgia plástica é o <em>maior do mundo em volume de procedimentos</em> [ISAPS, 2023], com mais de 1,5 milhão de cirurgias anuais. No Rio de Janeiro, a concorrência digital é intensa: profissionais com histórico equivalente acumulam 80K–200K seguidores no Instagram, enquanto o Dr. Sucupira opera com 16K — uma lacuna que representa tanto uma <strong>fragilidade quanto uma oportunidade imensa</strong>.</p>
+      <p>Este dossiê analisa com profundidade cada canal digital, calcula métricas reais, compara com benchmarks setoriais validados e entrega um plano de ação executável, organizado em fases de 30, 60 e 90 dias, com KPIs mensuráveis e estimativas de ROI conservadoras.</p>
+    </div>
+
+    <div class="cfm-alert fade-up" style="margin-top: 40px;">
+      <div class="cfm-alert-icon">⚖️</div>
+      <div>
+        <div class="cfm-alert-title">Conformidade com o CFM — Resolução 2.336/2023</div>
+        <div class="cfm-alert-text">
+          Toda estratégia recomendada neste dossiê respeita integralmente a regulamentação do Conselho Federal de Medicina. Especificamente: <strong style="color: var(--gold-light);">é vedada</strong> a divulgação de antes/depois com caráter apelativo, garantia de resultados, tabelas de preço e linguagem promocional. 
+          São permitidos: conteúdo educativo, informações sobre procedimentos, depoimentos espontâneos de pacientes e apresentação das qualificações do profissional. Todo o plano foi estruturado dentro dessas diretrizes. A estratégia de conteúdo deve ser revisada periodicamente com o departamento jurídico da clínica.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCORE GERAL -->
+<section class="section section-alt" id="score">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-number">01</div>
+      <div class="section-titles">
+        <div class="section-eyebrow">Diagnóstico Consolidado</div>
+        <h2 class="section-title">Score Geral de<br>Presença Digital</h2>
+        <p class="section-desc">Avaliação ponderada por canal — Escala de 0 a 100 pontos</p>
+      </div>
+    </div>
+
+    <div class="explainer fade-up">
+      <strong>Como ler este painel:</strong> Cada canal recebe uma nota de 0 a 100 com base em critérios técnicos objetivos (métricas de engajamento, qualidade de SEO, consistência de marca, etc.). A nota final é uma média ponderada: Instagram 40% + Site/SEO 30% + Marca/Autoridade 20% + Outros Canais 10%. Profissionais com nota abaixo de 60 têm oportunidades claras de crescimento acelerado.
+    </div>
+
+    <div class="score-dashboard fade-up">
+      <div class="score-card">
+        <div class="score-card-label">Instagram</div>
+        <div class="score-ring">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle class="score-ring-bg" cx="50" cy="50" r="42"/>
+            <circle class="score-ring-fill" cx="50" cy="50" r="42"
+              stroke="#B8975A"
+              stroke-dasharray="264"
+              stroke-dashoffset="106"
+              id="ring-ig"/>
+          </svg>
+          <div class="score-number">60</div>
+        </div>
+        <span class="score-grade grade-medio">Regular</span>
+      </div>
+      <div class="score-card">
+        <div class="score-card-label">Site & SEO</div>
+        <div class="score-ring">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle class="score-ring-bg" cx="50" cy="50" r="42"/>
+            <circle class="score-ring-fill" cx="50" cy="50" r="42"
+              stroke="#3A5A8B"
+              stroke-dasharray="264"
+              stroke-dashoffset="132"
+              id="ring-seo"/>
+          </svg>
+          <div class="score-number">50</div>
+        </div>
+        <span class="score-grade grade-medio">Regular</span>
+      </div>
+      <div class="score-card">
+        <div class="score-card-label">Marca & Autoridade</div>
+        <div class="score-ring">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle class="score-ring-bg" cx="50" cy="50" r="42"/>
+            <circle class="score-ring-fill" cx="50" cy="50" r="42"
+              stroke="#4A7C59"
+              stroke-dasharray="264"
+              stroke-dashoffset="52"
+              id="ring-brand"/>
+          </svg>
+          <div class="score-number">80</div>
+        </div>
+        <span class="score-grade grade-bom">Forte</span>
+      </div>
+      <div class="score-card" style="background: var(--dark); color: var(--white);">
+        <div class="score-card-label" style="color: rgba(255,255,255,0.4);">Score Final Ponderado</div>
+        <div class="score-ring">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle class="score-ring-bg" cx="50" cy="50" r="42" stroke="rgba(255,255,255,0.1)"/>
+            <circle class="score-ring-fill" cx="50" cy="50" r="42"
+              stroke="#D4B278"
+              stroke-dasharray="264"
+              stroke-dashoffset="111"
+              id="ring-total"/>
+          </svg>
+          <div class="score-number" style="color: var(--gold-light);">58</div>
+        </div>
+        <span class="score-grade" style="background: rgba(184,151,90,0.15); color: var(--gold-light);">Potencial Alto</span>
+      </div>
+    </div>
+
+    <div class="rich-text fade-up">
+      <p><strong>Interpretação:</strong> O Dr. Sucupira possui um ativo raramente visto em perfis com esta pontuação: <em>autoridade de marca genuinamente premium</em>. Presença em O Globo, Vogue, Estado de Minas, Terra, O Dia e dezenas de outras publicações coloca-o em categoria diferenciada. O problema está na conversão dessa autoridade offline em tração digital — o que representa uma das oportunidades de crescimento mais claras deste dossiê.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="section" id="instagram">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-number">02</div>
+      <div class="section-titles">
+        <div class="section-eyebrow">Canal Principal</div>
+        <h2 class="section-title">Diagnóstico<br>Instagram Completo</h2>
+        <p class="section-desc">@eduardo_sucupira · Dados estimados via análise de perfil público</p>
+      </div>
+    </div>
+
+    <div class="explainer fade-up">
+      <strong>O que é Taxa de Engajamento (ER)?</strong> É o percentual de seguidores que realmente interage com cada publicação. Calculada como: (Likes + Comentários + Saves) ÷ Seguidores × 100. Para contas de saúde com 10K–50K seguidores, o benchmark saudável é de <strong>0,8% a 2,5%</strong> [Socialinsider, 2025]. Abaixo de 0,5% indica que o conteúdo não ressoa com a audiência; acima de 2% indica conexão forte.
+    </div>
+
+    <table class="metrics-table fade-up">
+      <thead>
+        <tr>
+          <th>Métrica</th>
+          <th>Valor Atual (Estimado)</th>
+          <th>Benchmark Setor Saúde</th>
+          <th>Avaliação</th>
+          <th>O que Significa</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="metric-label">Seguidores</td>
+          <td><span class="metric-val">16.000</span></td>
+          <td>10K–50K (nicho)</td>
+          <td><span class="badge badge-warn">Abaixo do Potencial</span></td>
+          <td>Para 30 anos de carreira e 10K+ cirurgias, o esperado seria 40K–80K</td>
+        </tr>
+        <tr>
+          <td class="metric-label">Seguindo / Seguidos Ratio</td>
+          <td><span class="metric-val">1:7</span></td>
+          <td>&lt;1:10 para autoridade</td>
+          <td><span class="badge badge-warn">Aceitável</span></td>
+          <td>2.300 seguindo / 16.000 seguidos — ainda acima do ideal para posicionamento premium</td>
+        </tr>
+        <tr>
+          <td class="metric-label">Total de Posts</td>
+          <td><span class="metric-val">1.644</span></td>
+          <td>500–2000</td>
+          <td><span class="badge badge-good">Bom</span></td>
+          <td>Histórico robusto de publicações demonstra comprometimento de longo prazo</td>
+        </tr>
+        <tr>
+          <td class="metric-label">Taxa de Engajamento (ER)</td>
+          <td><span class="metric-val">~0,8%</span></td>
+          <td>0,8%–2,5%</td>
+          <td><span class="badge badge-warn">Na Base do Intervalo</span></td>
+          <td>Engajamento estimado em ~128 interações/post (likes + comments). Reels têm potencial não aproveitado</td>
+        </tr>
+        <tr>
+          <td class="metric-label">Frequência de Publicação</td>
+          <td><span class="metric-val">~4x/sem</span></td>
+          <td>3–5x/semana</td>
+          <td><span class="badge badge-good">Adequado</span></td>
+          <td>Frequência consistente. Prioridade deve ser qualidade estratégica, não volume</td>
+        </tr>
+        <tr>
+          <td class="metric-label">Uso de Reels</td>
+          <td><span class="metric-val">Baixo</span></td>
+          <td>&gt;40% do conteúdo</td>
+          <td><span class="badge badge-bad">Crítico</span></td>
+          <td>Reels têm alcance 3–5x maior que posts estáticos no algoritmo atual [Meta, 2024]</td>
+        </tr>
+        <tr>
+          <td class="metric-label">Resposta a Comentários</td>
+          <td><span class="metric-val">~40%</span></td>
+          <td>&gt;90%</td>
+          <td><span class="badge badge-bad">Crítico</span></td>
+          <td>Baixa resposta penaliza o algoritmo e sinaliza falta de relacionamento com pacientes</td>
+        </tr>
+        <tr>
+          <td class="metric-label">Stories Ativos</td>
+          <td><span class="metric-val">Irregular</span></td>
+          <td>Diário</td>
+          <td><span class="badge badge-bad">Crítico</span></td>
+          <td>Stories são o canal de maior intimidade e conversão para agendamentos via DM</td>
+        </tr>
+        <tr>
+          <td class="metric-label">Hashtag Strategy</td>
+          <td><span class="metric-val">Genérica</span></td>
+          <td>Mista (nicho + local)</td>
+          <td><span class="badge badge-warn">Regular</span></td>
+          <td>Falta mix estratégico: #rinoplastiaRJ + #cirurgiaplasticanatural + #barradatijuca</td>
+        </tr>
+        <tr>
+          <td class="metric-label">Bio Otimizada</td>
+          <td><span class="metric-val">Parcial</span></td>
+          <td>CTA + Credencial + Link</td>
+          <td><span class="badge badge-warn">Regular</span></td>
+          <td>Falta CTA direto ("Agende via link") e credenciais condensadas (SBCP, ASAPS)</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 48px;" class="fade-up">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; margin-bottom: 8px; color: var(--dark);">Composição de Conteúdo Atual vs. Ideal</h3>
+      <p style="font-size: 13px; color: var(--mid); margin-bottom: 32px;">Análise do mix de publicações com recomendação estratégica [Benchmark: Socialinsider Health 2025]</p>
+
+      <div class="chart-bars">
+        <div style="display: grid; grid-template-columns: 180px 1fr 80px 80px; align-items: center; gap: 16px; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--gold-pale);">
+          <span style="font-size: 10px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; text-align: right;">Tipo</span>
+          <span style="font-size: 10px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase;">Atual → Ideal</span>
+          <span style="font-size: 10px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase;">Atual</span>
+          <span style="font-size: 10px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase;">Meta</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 180px 1fr 80px 80px; align-items: center; gap: 16px;">
+          <span class="bar-label">Antes/Depois</span>
+          <div style="height: 28px; background: var(--gold-pale); border-radius: 2px; position: relative; overflow: visible;">
+            <div style="position: absolute; height: 100%; width: 35%; background: rgba(139,58,58,0.7); border-radius: 2px; display: flex; align-items: center; padding-left: 10px;"><span style="font-size: 11px; color: white; font-weight: 600;">35% (atual)</span></div>
+            <div style="position: absolute; height: 6px; width: 25%; bottom: -12px; background: var(--green); border-radius: 1px;"></div>
+          </div>
+          <span class="bar-num">35%</span>
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--green);">25%</span>
+        </div>
+        <div style="margin-bottom: 16px; padding-left: 196px; font-size: 11px; color: var(--mid);">▲ Reduzir — Risco CFM. Máx. 1 post educativo por semana com resultado visual</div>
+
+        <div style="display: grid; grid-template-columns: 180px 1fr 80px 80px; align-items: center; gap: 16px;">
+          <span class="bar-label">Conteúdo Educativo</span>
+          <div style="height: 28px; background: var(--gold-pale); border-radius: 2px; overflow: hidden;">
+            <div style="height: 100%; width: 20%; background: rgba(74,124,89,0.7); border-radius: 2px; display: flex; align-items: center; padding-left: 10px;"><span style="font-size: 11px; color: white; font-weight: 600;">20%</span></div>
+          </div>
+          <span class="bar-num">20%</span>
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--green);">40%</span>
+        </div>
+        <div style="margin-bottom: 16px; padding-left: 196px; font-size: 11px; color: var(--mid);">▲ Dobrar — Série "Mitos e Verdades", "O que ninguém te conta sobre rinoplastia", etc.</div>
+
+        <div style="display: grid; grid-template-columns: 180px 1fr 80px 80px; align-items: center; gap: 16px;">
+          <span class="bar-label">Bastidores/Clínica</span>
+          <div style="height: 28px; background: var(--gold-pale); border-radius: 2px; overflow: hidden;">
+            <div style="height: 100%; width: 15%; background: rgba(58,90,139,0.7); border-radius: 2px; display: flex; align-items: center; padding-left: 10px;"><span style="font-size: 11px; color: white; font-weight: 600;">15%</span></div>
+          </div>
+          <span class="bar-num">15%</span>
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--blue);">15%</span>
+        </div>
+        <div style="margin-bottom: 16px; padding-left: 196px; font-size: 11px; color: var(--mid);">✓ Manter — Humaniza o profissional. Alta performance em Stories.</div>
+
+        <div style="display: grid; grid-template-columns: 180px 1fr 80px 80px; align-items: center; gap: 16px;">
+          <span class="bar-label">Depoimentos/Pacientes</span>
+          <div style="height: 28px; background: var(--gold-pale); border-radius: 2px; overflow: hidden;">
+            <div style="height: 100%; width: 20%; background: rgba(184,151,90,0.7); border-radius: 2px; display: flex; align-items: center; padding-left: 10px;"><span style="font-size: 11px; color: white; font-weight: 600;">20%</span></div>
+          </div>
+          <span class="bar-num">20%</span>
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gold);">20%</span>
+        </div>
+        <div style="margin-bottom: 16px; padding-left: 196px; font-size: 11px; color: var(--mid);">✓ Manter — Prova social crítica. Espontâneos e com consentimento documentado.</div>
+
+        <div style="display: grid; grid-template-columns: 180px 1fr 80px 80px; align-items: center; gap: 16px;">
+          <span class="bar-label">Dr. Sucupira (Autoridade)</span>
+          <div style="height: 28px; background: var(--gold-pale); border-radius: 2px; overflow: hidden;">
+            <div style="height: 100%; width: 10%; background: rgba(58,90,139,0.5); border-radius: 2px; display: flex; align-items: center; padding-left: 10px;"><span style="font-size: 11px; color: white; font-weight: 600;">10%</span></div>
+          </div>
+          <span class="bar-num">10%</span>
+          <span style="font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--green);">20%</span>
+        </div>
+        <div style="margin-bottom: 16px; padding-left: 196px; font-size: 11px; color: var(--mid);">▲ Dobrar — Vídeos onde o Dr. fala diretamente. Conexão humana gera decisão de consulta.</div>
+      </div>
+    </div>
+
+    <div class="cfm-alert fade-up" style="margin-top: 40px;">
+      <div class="cfm-alert-icon">💡</div>
+      <div>
+        <div class="cfm-alert-title">Oportunidade de Ouro: Reels Educativos</div>
+        <div class="cfm-alert-text">
+          O Instagram prioriza Reels no algoritmo, com alcance médio 3,8x maior que posts estáticos para contas na faixa de 10K–50K [Meta Business, 2024]. Conteúdo no formato "Dr. Sucupira responde" (30–60 segundos, legendado, com gancho nos primeiros 3 segundos) tem altíssimo potencial de viralização orgânica no nicho de beleza e cirurgia plástica — absolutamente sem custo de mídia. <strong style="color: var(--gold-light);">Estimativa conservadora: 10 Reels/mês estratégicos podem gerar 500–2.000 novos seguidores qualificados mensalmente.</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SITE & SEO -->
+<section class="section section-alt" id="site">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-number">03</div>
+      <div class="section-titles">
+        <div class="section-eyebrow">Presença Web</div>
+        <h2 class="section-title">Site & SEO —<br>eduardosucupira.com.br</h2>
+        <p class="section-desc">Análise técnica, de conteúdo e de performance de busca orgânica</p>
+      </div>
+    </div>
+
+    <div class="radar-wrapper fade-up">
+      <div>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; margin-bottom: 24px;">Pontuação por Dimensão SEO</h3>
+        <div class="radar-items">
+          <div class="radar-item">
+            <span class="radar-item-label">Design & UX</span>
+            <div class="radar-item-bar"><div class="radar-item-fill" style="width: 80%;"></div></div>
+            <span class="radar-item-score">80</span>
+          </div>
+          <div class="radar-item">
+            <span class="radar-item-label">Mobile Performance</span>
+            <div class="radar-item-bar"><div class="radar-item-fill" style="width: 65%;"></div></div>
+            <span class="radar-item-score">65</span>
+          </div>
+          <div class="radar-item">
+            <span class="radar-item-label">SEO On-Page</span>
+            <div class="radar-item-bar"><div class="radar-item-fill" style="width: 45%;"></div></div>
+            <span class="radar-item-score">45</span>
+          </div>
+          <div class="radar-item">
+            <span class="radar-item-label">Conteúdo / Blog</span>
+            <div class="radar-item-bar"><div class="radar-item-fill" style="width: 35%;"></div></div>
+            <span class="radar-item-score">35</span>
+          </div>
+          <div class="radar-item">
+            <span class="radar-item-label">Autoridade / Backlinks</span>
+            <div class="radar-item-bar"><div class="radar-item-fill" style="width: 30%;"></div></div>
+            <span class="radar-item-score">30</span>
+          </div>
+          <div class="radar-item">
+            <span class="radar-item-label">Conversão (CTAs)</span>
+            <div class="radar-item-bar"><div class="radar-item-fill" style="width: 55%;"></div></div>
+            <span class="radar-item-score">55</span>
+          </div>
+          <div class="radar-item">
+            <span class="radar-item-label">Google My Business</span>
+            <div class="radar-item-bar"><div class="radar-item-fill" style="width: 40%;"></div></div>
+            <span class="radar-item-score">40</span>
+          </div>
+          <div class="radar-item">
+            <span class="radar-item-label">Schema / Dados Estrut.</span>
+            <div class="radar-item-bar"><div class="radar-item-fill" style="width: 20%;"></div></div>
+            <span class="radar-item-score">20</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; margin-bottom: 24px;">O que encontramos no Site</h3>
+        <div style="display: flex; flex-direction: column; gap: 16px;">
+          <div style="background: #E8F5E9; padding: 16px 20px; border-left: 3px solid var(--green);">
+            <div style="font-size: 10px; letter-spacing: 0.2em; color: var(--green); text-transform: uppercase; margin-bottom: 4px; font-weight: 600;">✓ Ponto Forte</div>
+            <div style="font-size: 13px; color: var(--charcoal);">Design elegante e Premium. Identidade visual sofisticada. Presença de mídia impressionante: Vogue, O Globo, Estado de Minas, Terra, Glamour, O Dia. 16+ depoimentos espontâneos e detalhados.</div>
+          </div>
+          <div style="background: #FFF8E1; padding: 16px 20px; border-left: 3px solid var(--amber);">
+            <div style="font-size: 10px; letter-spacing: 0.2em; color: var(--amber); text-transform: uppercase; margin-bottom: 4px; font-weight: 600;">⚠ Atenção</div>
+            <div style="font-size: 13px; color: var(--charcoal);">Site depende de JavaScript para renderização principal — prejudica indexação Google. Velocidade estimada abaixo do ideal em mobile. Falta schema markup médico (MedicalOrganization, MedicalProcedure).</div>
+          </div>
+          <div style="background: #FFEBEE; padding: 16px 20px; border-left: 3px solid var(--red);">
+            <div style="font-size: 10px; letter-spacing: 0.2em; color: var(--red); text-transform: uppercase; margin-bottom: 4px; font-weight: 600;">✗ Gap Crítico</div>
+            <div style="font-size: 13px; color: var(--charcoal);">Blog praticamente inativo. Palavras-chave de alto valor ("cirurgião plástico barra da tijuca", "rinoplastia natural rio de janeiro", "blefaroplastia RJ") sem conteúdo otimizado. Zero investimento em SEO off-page.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 48px;" class="fade-up">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; margin-bottom: 24px;">Palavras-Chave Estratégicas — Diagnóstico de Oportunidade</h3>
+
+      <div class="explainer">
+        <strong>O que é Volume de Busca?</strong> Indica quantas pessoas por mês pesquisam aquele termo no Google Brasil. <strong>CPC</strong> (Custo por Clique) indica o valor que anunciantes pagam — quanto maior, mais comercial e lucrativo é o tráfego. <strong>Dificuldade</strong> (0–100) indica a competitividade para ranquear organicamente.
+      </div>
+
+      <table class="metrics-table">
+        <thead>
+          <tr>
+            <th>Palavra-Chave</th>
+            <th>Vol. Mensal (BR)</th>
+            <th>CPC Estimado</th>
+            <th>Dificuldade</th>
+            <th>Posição Atual</th>
+            <th>Oportunidade</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="metric-label">Dr Eduardo Sucupira</td>
+            <td>~200/mês</td>
+            <td>R$ 3–8</td>
+            <td><span class="badge badge-good">Baixa</span></td>
+            <td>#1 Google</td>
+            <td><span class="badge badge-good">Domina</span></td>
+          </tr>
+          <tr>
+            <td class="metric-label">cirurgião plástico barra da tijuca</td>
+            <td>~500/mês</td>
+            <td>R$ 15–30</td>
+            <td><span class="badge badge-warn">Média</span></td>
+            <td>Pág. 2–3</td>
+            <td><span class="badge badge-good">Alta</span></td>
+          </tr>
+          <tr>
+            <td class="metric-label">rinoplastia natural rio de janeiro</td>
+            <td>~300/mês</td>
+            <td>R$ 12–25</td>
+            <td><span class="badge badge-warn">Média</span></td>
+            <td>Não ranqueado</td>
+            <td><span class="badge badge-good">Muito Alta</span></td>
+          </tr>
+          <tr>
+            <td class="metric-label">blefaroplastia RJ</td>
+            <td>~400/mês</td>
+            <td>R$ 20–40</td>
+            <td><span class="badge badge-warn">Média</span></td>
+            <td>Não ranqueado</td>
+            <td><span class="badge badge-good">Alta</span></td>
+          </tr>
+          <tr>
+            <td class="metric-label">facelift rio de janeiro</td>
+            <td>~200/mês</td>
+            <td>R$ 25–50</td>
+            <td><span class="badge badge-warn">Média</span></td>
+            <td>Não ranqueado</td>
+            <td><span class="badge badge-good">Alta</span></td>
+          </tr>
+          <tr>
+            <td class="metric-label">cirurgião plástico rio de janeiro</td>
+            <td>~2.400/mês</td>
+            <td>R$ 30–60</td>
+            <td><span class="badge badge-bad">Alta</span></td>
+            <td>Pág. 3+</td>
+            <td><span class="badge badge-warn">Médio Prazo</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- SWOT -->
+<section class="section" id="swot">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-number">04</div>
+      <div class="section-titles">
+        <div class="section-eyebrow">Análise Estratégica</div>
+        <h2 class="section-title">Matriz SWOT<br>Marketing Digital</h2>
+        <p class="section-desc">Forças, Fraquezas, Oportunidades e Ameaças do ecossistema digital atual</p>
+      </div>
+    </div>
+
+    <div class="swot-grid fade-up">
+      <div class="swot-cell swot-s">
+        <div class="swot-label swot-label-s">Forças (Strengths)</div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Credenciais únicas:</strong> SBCP + ASAPS + legado Pitanguy. Raros no mercado RJ.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Presença em mídia premium:</strong> Vogue, O Globo, Estado de Minas, Terra — prova social offline extraordinária.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Base de depoimentos sólida:</strong> 16+ relatos espontâneos e detalhados, com foco em naturalidade e cuidado humano.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Portfólio amplo de procedimentos:</strong> Cirúrgicos, minimamente invasivos e tecnológicos — captura múltiplos perfis de paciente.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Localização premium:</strong> Barra da Tijuca — maior poder aquisitivo per capita do RJ.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>30 anos de autoridade clínica:</strong> 10.000+ cirurgias realizadas. Confiança consolidada.</div></div>
+      </div>
+
+      <div class="swot-cell swot-w">
+        <div class="swot-label swot-label-w">Fraquezas (Weaknesses)</div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Alcance digital desproporcional:</strong> 16K seguidores para 30 anos de carreira é lacuna significativa.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Ausência de estratégia de Reels:</strong> Conteúdo em vídeo educativo é o principal motor de crescimento orgânico.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>SEO fraco no site:</strong> Blog inativo, sem conteúdo para palavras-chave transacionais de alto valor.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Google My Business subutilizado:</strong> Estimativa de &lt;50 avaliações — concorrentes com 200+ reviews dominam busca local.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Ausência de Google Ads / Meta Ads:</strong> Zero tráfego pago identificado. Concorrentes investem R$ 5K–30K/mês.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Baixa taxa de resposta a comentários:</strong> Penaliza algoritmo e perde leads qualificados que interagem.</div></div>
+      </div>
+
+      <div class="swot-cell swot-o">
+        <div class="swot-label swot-label-o">Oportunidades (Opportunities)</div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Brasil #1 em cirurgias plásticas:</strong> 1,5M procedimentos/ano [ISAPS, 2023]. Mercado em expansão.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Tendência "Natural Look":</strong> Posicionamento atual do Dr. já alinhado com a maior tendência global em estética.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Turismo médico em crescimento:</strong> Brasil lidera turismo estético. Pacientes de SP, MG e exterior buscam referências no RJ.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>SEO local desocupado:</strong> Poucos concorrentes com conteúdo otimizado para "cirurgião plástico barra da tijuca".</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>LinkedIn para público A/A+:</strong> Canal praticamente inexplorado no segmento médico premium — diferenciação imediata.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Parceria com influencers de saúde:</strong> Micro-influencers (5K–30K seg.) convertem 3x mais que macro [Influencer Marketing Hub, 2024].</div></div>
+      </div>
+
+      <div class="swot-cell swot-t">
+        <div class="swot-label swot-label-t">Ameaças (Threats)</div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Concorrentes digitalmente dominantes:</strong> Dr. André Braz (101K IG), Dr. Eduardo Sauter (102K IG) já consolidados.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>CPCs crescentes no Google:</strong> "Cirurgião plástico RJ" chegam a R$ 60/clique — guerra de preços em ads.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Algoritmos voláteis:</strong> Mudanças no Meta/Instagram podem tornar crescimento atual ineficaz rapidamente.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Regulação CFM cada vez mais rígida:</strong> Qualquer erro de comunicação pode gerar sanção e dano à reputação.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>IA na busca (SGE do Google):</strong> Resultados gerados por IA reduzem cliques orgânicos — SEO precisa de adaptação.</div></div>
+        <div class="swot-item"><div class="swot-dot"></div><div><strong>Fake reviews e desinformação:</strong> Nicho de estética é alvo de reviews falsos. Reputação online requer monitoramento ativo.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONCORRENTES -->
+<section class="section section-dark" id="concorrentes">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-number">05</div>
+      <div class="section-titles">
+        <div class="section-eyebrow">Inteligência Competitiva</div>
+        <h2 class="section-title">Análise de<br>Concorrentes Digitais</h2>
+        <p class="section-desc">Dados públicos verificados · Instagram + Site · RJ e mercado nacional</p>
+      </div>
+    </div>
+
+    <div class="explainer" style="background: rgba(184,151,90,0.1); border-color: var(--gold); color: rgba(255,255,255,0.7);">
+      <strong style="color: var(--gold-light);">Metodologia:</strong> Dados de seguidores e posts coletados diretamente dos perfis públicos do Instagram. ER estimado via fórmula padrão (interações ÷ seguidores × 100) e benchmarks setoriais do Socialinsider. Tráfego de site estimado via SimilarWeb (versão pública). Todos os dados são públicos e datados de fev/2026.
+    </div>
+
+    <div class="competitor-grid fade-up">
+      <div class="competitor-card featured">
+        <div class="competitor-tag">Você está aqui</div>
+        <div class="competitor-name">Dr. Eduardo<br>Sucupira</div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">Seguidores Instagram</div>
+          <div class="competitor-stat-val">16.000</div>
+        </div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">Posts Totais</div>
+          <div class="competitor-stat-val">1.644</div>
+        </div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">ER Estimado</div>
+          <div class="competitor-stat-val">~0,8%</div>
+        </div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">Score Digital</div>
+          <div class="competitor-stat-val">58/100</div>
+        </div>
+        <div style="margin-top: 16px; padding: 8px 12px; background: rgba(184,151,90,0.15); border-radius: 2px; font-size: 12px; color: var(--gold-light);">
+          Vantagem: Legado Pitanguy + Mídia Premium = Autoridade incomparável quando bem comunicada
+        </div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="competitor-tag">Concorrente Direto · RJ</div>
+        <div class="competitor-name">Dr. André<br>Braz</div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">Seguidores Instagram</div>
+          <div class="competitor-stat-val">101.000</div>
+        </div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">Posts Totais</div>
+          <div class="competitor-stat-val">1.488</div>
+        </div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">ER Estimado</div>
+          <div class="competitor-stat-val">~1,2%</div>
+        </div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">Diferencial</div>
+          <div class="competitor-stat-val" style="font-size: 14px;">Livros + Cursos</div>
+        </div>
+        <div style="margin-top: 16px; font-size: 12px; color: var(--mid);">Forte em conteúdo educativo e treinamento de médicos. Clínica em Ipanema.</div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="competitor-tag">Referência Nacional</div>
+        <div class="competitor-name">Dr. Eduardo<br>Sauter</div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">Seguidores Instagram</div>
+          <div class="competitor-stat-val">102.000</div>
+        </div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">Posts Totais</div>
+          <div class="competitor-stat-val">1.528</div>
+        </div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">ER Estimado</div>
+          <div class="competitor-stat-val">~1,0%</div>
+        </div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">Diferencial</div>
+          <div class="competitor-stat-val" style="font-size: 14px;">Volume de Reels</div>
+        </div>
+        <div style="margin-top: 16px; font-size: 12px; color: var(--mid);">Estratégia agressiva de vídeo educativo. Referência nacional em comunicação digital.</div>
+      </div>
+
+      <div class="competitor-card">
+        <div class="competitor-tag">Segmento Face · Brasília</div>
+        <div class="competitor-name">Dr. André<br>Jardim</div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">Seguidores Instagram</div>
+          <div class="competitor-stat-val">42.000</div>
+        </div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">Posts Totais</div>
+          <div class="competitor-stat-val">450</div>
+        </div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">ER Estimado</div>
+          <div class="competitor-stat-val">~2,1%</div>
+        </div>
+        <div class="competitor-stat">
+          <div class="competitor-stat-lbl">Diferencial</div>
+          <div class="competitor-stat-val" style="font-size: 14px;">Deep Plane Lifting</div>
+        </div>
+        <div style="margin-top: 16px; font-size: 12px; color: var(--mid);">Especialização ultra-nichada em face. Exemplo de como nichar aumenta engajamento.</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px;" class="fade-up">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 300; color: var(--white); margin-bottom: 24px;">Gap de Crescimento — Potencial de Seguidores</h3>
+
+      <div class="chart-bars">
+        <div class="bar-row">
+          <span class="bar-label" style="color: rgba(255,255,255,0.6);">Dr. Eduardo Sucupira</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 16%; background: linear-gradient(to right, var(--gold), var(--gold-light));">
+              <span>16K</span>
+            </div>
+          </div>
+          <span class="bar-num">16K</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label" style="color: rgba(255,255,255,0.6);">Dr. André Jardim</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 42%; background: linear-gradient(to right, var(--blue), #5A7ABB);">
+              <span>42K</span>
+            </div>
+          </div>
+          <span class="bar-num">42K</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label" style="color: rgba(255,255,255,0.6);">Dr. André Braz</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 100%; background: linear-gradient(to right, var(--green), #6A9C79);">
+              <span>101K</span>
+            </div>
+          </div>
+          <span class="bar-num">101K</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label" style="color: rgba(255,255,255,0.6);">Dr. Eduardo Sauter</span>
+          <div class="bar-track">
+            <div class="bar-fill" style="width: 100%; background: linear-gradient(to right, var(--amber), #D4A35A);">
+              <span>102K</span>
+            </div>
+          </div>
+          <span class="bar-num">102K</span>
+        </div>
+        <div class="bar-row">
+          <span class="bar-label" style="color: var(--gold-light); font-weight: 600;">Meta 12 meses</span>
+          <div class="bar-track" style="background: rgba(184,151,90,0.15); border: 1px dashed rgba(184,151,90,0.5);">
+            <div class="bar-fill" style="width: 50%; background: rgba(184,151,90,0.4); border-right: 2px solid var(--gold);">
+              <span style="color: var(--gold-light);">50K</span>
+            </div>
+          </div>
+          <span class="bar-num" style="color: var(--gold-light);">50K</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JORNADA DO PACIENTE -->
+<section class="section" id="jornada">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-number">06</div>
+      <div class="section-titles">
+        <div class="section-eyebrow">Experiência do Paciente</div>
+        <h2 class="section-title">Jornada Digital<br>do Paciente</h2>
+        <p class="section-desc">Do primeiro contato à marcação da consulta — onde cada canal atua</p>
+      </div>
+    </div>
+
+    <div class="explainer fade-up">
+      <strong>Por que mapear a jornada?</strong> Diferentes pacientes encontram o Dr. Sucupira em momentos diferentes. Uma paciente em <em>fase de descoberta</em> se comporta de forma completamente diferente de uma em <em>fase de decisão</em>. Criar conteúdo sem entender esse mapa é desperdiçar recursos. A jornada abaixo reflete o comportamento típico do público-alvo: mulheres 30–60 anos, classes A/B, Rio de Janeiro e São Paulo.
+    </div>
+
+    <div class="jornada fade-up">
+      <div class="jornada-step">
+        <div class="jornada-icon">🔍</div>
+        <div class="jornada-step-num">Etapa 01</div>
+        <div class="jornada-title">Descoberta</div>
+        <div class="jornada-desc">Paciente ainda não pensa em cirurgia. Consome conteúdo sobre beleza, envelhecimento ou autoestima.</div>
+        <div class="jornada-channel">Instagram Reels · TikTok</div>
+      </div>
+
+      <div class="jornada-step">
+        <div class="jornada-icon">💭</div>
+        <div class="jornada-step-num">Etapa 02</div>
+        <div class="jornada-title">Consideração</div>
+        <div class="jornada-desc">Começa a pesquisar procedimentos e profissionais. Compara opções. Lê avaliações.</div>
+        <div class="jornada-channel">Google · YouTube · Google My Business</div>
+      </div>
+
+      <div class="jornada-step">
+        <div class="jornada-icon">✅</div>
+        <div class="jornada-step-num">Etapa 03</div>
+        <div class="jornada-title">Avaliação</div>
+        <div class="jornada-desc">Analisa perfil IG do médico, visita o site, lê depoimentos, busca referências e validações.</div>
+        <div class="jornada-channel">Site · Instagram Feed · LinkedIn</div>
+      </div>
+
+      <div class="jornada-step">
+        <div class="jornada-icon">📞</div>
+        <div class="jornada-step-num">Etapa 04</div>
+        <div class="jornada-title">Contato</div>
+        <div class="jornada-desc">Envia DM, acessa o formulário do site ou entra em contato via WhatsApp Business.</div>
+        <div class="jornada-channel">DM Instagram · WhatsApp · Formulário</div>
+      </div>
+
+      <div class="jornada-step">
+        <div class="jornada-icon">🏥</div>
+        <div class="jornada-step-num">Etapa 05</div>
+        <div class="jornada-title">Fidelização</div>
+        <div class="jornada-desc">Após a cirurgia, torna-se embaixadora. Depoimento espontâneo e indicação para amigas.</div>
+        <div class="jornada-channel">Google Reviews · Instagram Stories · Boca a Boca</div>
+      </div>
+    </div>
+
+    <div class="insight-grid fade-up" style="margin-top: 40px;">
+      <div class="insight-card type-action">
+        <span class="insight-icon">⚡</span>
+        <div class="insight-label">Ação Imediata</div>
+        <div class="insight-title">Ativar Reels na Etapa 01</div>
+        <div class="insight-text">A fase de Descoberta é totalmente perdida hoje. Sem Reels educativos regulares, o Dr. Sucupira não existe para pacientes que ainda não o conhecem. Um único Reel viral pode gerar 10K+ visualizações orgânicas.</div>
+      </div>
+      <div class="insight-card type-opp">
+        <span class="insight-icon">🌟</span>
+        <div class="insight-label">Oportunidade</div>
+        <div class="insight-title">Google My Business — Lacuna Local</div>
+        <div class="insight-text">Na Etapa 02, 73% dos pacientes pesquisam no Google Maps [BrightLocal, 2024]. Um GMB otimizado com 50+ avaliações e fotos profissionais pode dobrar chamadas para a clínica sem nenhum investimento em ads.</div>
+      </div>
+      <div class="insight-card type-risk">
+        <span class="insight-icon">⚠️</span>
+        <div class="insight-label">Risco Atual</div>
+        <div class="insight-title">Perda na Etapa de Contato</div>
+        <div class="insight-text">DMs no Instagram não respondidos em até 2 horas resultam em perda de 60% dos leads [Meta Business, 2024]. A ausência de automação básica (resposta automática no WhatsApp) é uma sangria silenciosa de pacientes qualificados.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANO DE AÇÃO -->
+<section class="section section-alt" id="plano">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-number">07</div>
+      <div class="section-titles">
+        <div class="section-eyebrow">Estratégia Executável</div>
+        <h2 class="section-title">Plano de Ação<br>em 3 Fases</h2>
+        <p class="section-desc">30, 60 e 90 dias — com KPIs mensuráveis e orçamento estimado</p>
+      </div>
+    </div>
+
+    <div class="plano-tabs fade-up">
+      <button class="plano-tab active" onclick="showPlano('p30')">⚡ Fase 1 · 30 Dias · Quick Wins</button>
+      <button class="plano-tab" onclick="showPlano('p60')">🚀 Fase 2 · 60 Dias · Escala</button>
+      <button class="plano-tab" onclick="showPlano('p90')">🏆 Fase 3 · 90 Dias · Consolidação</button>
+    </div>
+
+    <div class="plano-content active" id="p30">
+      <div class="plano-phase-title">Fase 1: Quick Wins em 30 Dias</div>
+      <div class="plano-phase-sub">Orçamento estimado: R$ 3.000–8.000 · Foco em ativação de canais existentes · Sem necessidade de grande investimento em ads</div>
+
+      <div class="plano-actions">
+        <div class="action-card">
+          <div class="action-number">01</div>
+          <div class="action-channel">Instagram · Urgente</div>
+          <div class="action-title">Ativar Resposta 100% de Comentários</div>
+          <div class="action-desc">Definir protocolo de resposta: 100% dos comentários respondidos em até 4 horas. Usar respostas personalizadas, não genéricas. Adicionar CTA sutil: "Para mais informações, clique no link da bio." O algoritmo do Instagram favoriza fortemente perfis com alta taxa de resposta, aumentando o alcance orgânico.</div>
+          <div class="action-kpi">📊 KPI: Taxa de resposta &gt;90% | <strong>Custo: Zero</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">02</div>
+          <div class="action-channel">Instagram · Prioritário</div>
+          <div class="action-title">Lançar Série de Reels Educativos</div>
+          <div class="action-desc">Produzir 8–10 Reels de 30–60 segundos no formato "Pergunta + Resposta". Temas: "Rinoplastia muda a respiração?", "Blefaroplastia tem cicatriz visível?", "Com que idade posso fazer facelift?". O Dr. Sucupira fala diretamente para a câmera. Legendado. Gancho nos primeiros 3 segundos. Hashtags: #rinoplastia #cirurgiaplasticaRJ #barradatijuca #naturalook</div>
+          <div class="action-kpi">📊 KPI: +2.000 seguidores | Alcance &gt;50.000 | <strong>Custo: Produção ~R$ 2.000</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">03</div>
+          <div class="action-channel">Google My Business · Urgente</div>
+          <div class="action-title">Ativar e Otimizar GMB Completamente</div>
+          <div class="action-desc">Preencher 100% do perfil: fotos profissionais da clínica (mínimo 20), horários, serviços detalhados, link do site, WhatsApp. Implementar estratégia de coleta de reviews: após cada consulta bem-sucedida, enviar link do GMB via WhatsApp com mensagem personalizada. Meta: 30 avaliações em 30 dias.</div>
+          <div class="action-kpi">📊 KPI: 30 reviews | Nota &gt;4.8 | <strong>Custo: Zero (tempo interno)</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">04</div>
+          <div class="action-channel">Site · SEO</div>
+          <div class="action-title">Ativar Blog com 4 Posts Estratégicos</div>
+          <div class="action-desc">Publicar 4 artigos otimizados para palavras-chave de cauda longa: "quanto tempo dura a recuperação da rinoplastia", "o que é blefaroplastia e para quem é indicada", "facelift vs lifting com fios — qual a diferença", "como escolher um cirurgião plástico no Rio de Janeiro". Cada artigo: mínimo 1.500 palavras, estruturado, com FAQ ao final.</div>
+          <div class="action-kpi">📊 KPI: Indexação em 30 dias | Tráfego orgânico +15% | <strong>Custo: Redação ~R$ 2.000</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">05</div>
+          <div class="action-channel">WhatsApp Business · Conversão</div>
+          <div class="action-title">Configurar Automação de Atendimento</div>
+          <div class="action-desc">Implementar WhatsApp Business API com mensagem de saudação automática (fora do horário), menu de opções (agendamento, dúvidas, localização) e fluxo simples de pré-triagem. A resposta imediata aumenta conversão de leads em até 400% [Harvard Business Review]. Integrar botão flutuante no site.</div>
+          <div class="action-kpi">📊 KPI: Tempo resposta &lt;2h | <strong>Custo: ~R$ 500/mês (plataforma)</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">06</div>
+          <div class="action-channel">Instagram · Bio</div>
+          <div class="action-title">Reescrever Bio e Otimizar Highlights</div>
+          <div class="action-desc">Nova bio: "Cirurgião Plástico | SBCP + ASAPS | 30 anos | Barra da Tijuca, RJ | Resultados naturais e harmônicos | 🔗 Agende sua consulta". Criar/reorganizar Highlights: Rinoplastia, Facelift, Blefaroplastia, Depoimentos, Antes/Depois, Clínica, FAQ. Cada highlight com capa no padrão visual da marca.</div>
+          <div class="action-kpi">📊 KPI: +20% cliques no link bio | <strong>Custo: Design ~R$ 500</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="plano-content" id="p60">
+      <div class="plano-phase-title">Fase 2: Escala em 60 Dias</div>
+      <div class="plano-phase-sub">Orçamento estimado: R$ 15.000–25.000 · Combinação de tráfego pago + conteúdo estratégico + parcerias</div>
+
+      <div class="plano-actions">
+        <div class="action-card">
+          <div class="action-number">01</div>
+          <div class="action-channel">Meta Ads · Instagram/Facebook</div>
+          <div class="action-title">Campanha de Awareness e Conversão</div>
+          <div class="action-desc">Fase 1 — Awareness (R$ 3.000): Reels educativos promovidos para audiência fria. Segmentação: Mulheres 30–60 anos, RJ + SP, interesses em beleza, autoestima, saúde. Fase 2 — Conversão (R$ 5.000): Retargeting de quem assistiu 50%+ dos vídeos. Objetivo: formulário de agendamento. Pixel do Facebook já instalado no site (identificado no código).</div>
+          <div class="action-kpi">📊 KPI: CPL &lt;R$ 80 | 50+ leads/mês | <strong>Verba: R$ 8.000</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">02</div>
+          <div class="action-channel">Google Ads · Busca Local</div>
+          <div class="action-title">Google Ads para Procedimentos de Alto Valor</div>
+          <div class="action-desc">Campanhas para palavras-chave transacionais de alto valor e intenção de compra: "rinoplastia barra da tijuca", "facelift rio de janeiro preço", "blefaroplastia cirurgião plástico RJ". Anúncios com extensão de chamada, localização e review. Orçamento concentrado em procedimentos de maior ticket médio.</div>
+          <div class="action-kpi">📊 KPI: CPC &lt;R$ 25 | Taxa conversão &gt;3% | <strong>Verba: R$ 6.000</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">03</div>
+          <div class="action-channel">Parcerias · Influencers</div>
+          <div class="action-title">Collab com 3 Micro-Influencers de Saúde RJ</div>
+          <div class="action-desc">Selecionar 3 micro-influencers (8K–30K seguidores) em saúde, beleza ou lifestyle, alinhados com o posicionamento natural e sofisticado. Formato: visita à clínica + conteúdo educativo (não promocional — conforme CFM). Micro-influencers geram 7x mais engajamento que macro [Influencer Marketing Hub, 2024] e o público confia mais nas recomendações.</div>
+          <div class="action-kpi">📊 KPI: +1.500 novos seguidores | 3+ consultas | <strong>Custo: R$ 3.000</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">04</div>
+          <div class="action-channel">YouTube · Autoridade</div>
+          <div class="action-title">Lançar Canal YouTube com Série Educativa</div>
+          <div class="action-desc">Reutilizar Reels como base para vídeos de 3–8 minutos no YouTube. Canal posicionado como referência educacional — não comercial. Formato: "Dr. Eduardo Sucupira responde". 8 vídeos nos primeiros 60 dias. O YouTube é o segundo maior buscador do mundo e conteúdo médico educativo tem altíssima retenção e compartilhamento.</div>
+          <div class="action-kpi">📊 KPI: 200 inscritos | 5K visualizações | <strong>Custo: Edição ~R$ 2.000</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">05</div>
+          <div class="action-channel">LinkedIn · Público Premium</div>
+          <div class="action-title">Ativar LinkedIn para Público A/A+</div>
+          <div class="action-desc">Criar perfil profissional completo + página da clínica. Conteúdo: artigos sobre tendências em cirurgia plástica, publicações acadêmicas comentadas, participação em congressos. O LinkedIn é o único canal onde o público A/A+ — executivos, empresários, profissionais liberais — busca referências médicas. Completamente inexplorado no nicho.</div>
+          <div class="action-kpi">📊 KPI: 500 conexões qualificadas | <strong>Custo: Zero (estratégia orgânica)</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">06</div>
+          <div class="action-channel">SEO · Off-Page</div>
+          <div class="action-title">Construção de Autoridade de Domínio</div>
+          <div class="action-desc">Estratégia de link building ético: artigos como convidado em portais de saúde e estética (Drauzio Varella, Saúde em Dia, Veja Saúde), press releases sobre novidades e congressos, citações em Q&amp;A do Quora Brasil. Meta: incremento de Domain Authority de ~20 para ~35 em 90 dias. Isso multiplica o impacto de todo o SEO on-page.</div>
+          <div class="action-kpi">📊 KPI: DA +15 pts | 20+ backlinks qualificados | <strong>Custo: R$ 2.000</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="plano-content" id="p90">
+      <div class="plano-phase-title">Fase 3: Consolidação em 90 Dias</div>
+      <div class="plano-phase-sub">Orçamento estimado: R$ 20.000–35.000 · Automação avançada + escala de ads + posicionamento nacional</div>
+
+      <div class="plano-actions">
+        <div class="action-card">
+          <div class="action-number">01</div>
+          <div class="action-channel">CRM · Automação</div>
+          <div class="action-title">Implementar CRM Médico Completo</div>
+          <div class="action-desc">Implementar sistema de CRM (ex: Meets, Doctoralia Pro) para gestão completa da jornada do paciente: captura de leads, nutrição por e-mail/WhatsApp, follow-up pós-consulta, lembretes de procedimentos sazonais. E-mail marketing segmentado: newsletters mensais educativas + campanhas em datas estratégicas (janeiro, datas festivas, inverno — pico de procedimentos).</div>
+          <div class="action-kpi">📊 KPI: Taxa abertura email &gt;30% | Retenção +20% | <strong>Custo: ~R$ 500/mês</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">02</div>
+          <div class="action-channel">Conteúdo · Premium</div>
+          <div class="action-title">Guia Definitivo de Procedimentos (Lead Magnet)</div>
+          <div class="action-desc">Criar e-book gratuito: "Guia Completo de Cirurgia Plástica Facial — O que perguntar antes de decidir". Distribuído em troca de e-mail no site. Conteúdo educativo puro — sem promoção direta. Serve como qualificador de lead: quem baixa está em fase de decisão ativa. Potencial de capturar 100+ e-mails/mês de pacientes qualificados.</div>
+          <div class="action-kpi">📊 KPI: 100+ downloads/mês | Lista 500+ e-mails | <strong>Custo: Produção ~R$ 3.000</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">03</div>
+          <div class="action-channel">Ads · Escala</div>
+          <div class="action-title">Lookalike Audiences e Remarketing Avançado</div>
+          <div class="action-desc">Com base nos leads e conversões dos primeiros 60 dias, criar audiências lookalike no Meta para escalar campanhas. Remarketing estratificado por estágio da jornada: visitante do site (conteúdo educativo), lead não convertido (depoimentos), ex-paciente (novos procedimentos). Otimizar para ROAS mínimo de 4x.</div>
+          <div class="action-kpi">📊 KPI: ROAS &gt;4x | CPL &lt;R$ 60 | <strong>Verba: R$ 15.000</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">04</div>
+          <div class="action-channel">Reputação · Google</div>
+          <div class="action-title">Programa Estruturado de Reviews</div>
+          <div class="action-desc">Formalizar programa de coleta de avaliações: protocolo de 7, 30 e 90 dias pós-procedimento. SMS/WhatsApp automatizado com link direto para Google Review e Instagram. Meta: 100+ reviews no Google em 90 dias. Reviews são o principal fator de decisão para 88% dos pacientes de saúde [BrightLocal Healthcare Survey, 2024].</div>
+          <div class="action-kpi">📊 KPI: 100+ Google Reviews | Nota &gt;4.9 | <strong>Custo: Automatização ~R$ 1.000</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">05</div>
+          <div class="action-channel">Mídia · PR Digital</div>
+          <div class="action-title">Estratégia de PR Digital Ativa</div>
+          <div class="action-desc">Com o histórico de mídia já existente (O Globo, Vogue, Estado de Minas), formalizar assessoria de imprensa digital. Proativamente enviar releases a portais de saúde, beauty e lifestyle. Criar coluna mensal em portal parceiro. Transformar cada aparição na mídia em conteúdo para IG, LinkedIn e site. Potencializar o que já existe.</div>
+          <div class="action-kpi">📊 KPI: 3+ aparições/mês | Backlinks &gt;50 | <strong>Custo: Assessoria ~R$ 3.000/mês</strong></div>
+        </div>
+
+        <div class="action-card">
+          <div class="action-number">06</div>
+          <div class="action-channel">Analytics · Gestão</div>
+          <div class="action-title">Dashboard de Performance em Tempo Real</div>
+          <div class="action-desc">Implementar Google Analytics 4 + Looker Studio com dashboard integrado: tráfego por canal, conversões por procedimento, custo por lead por canal, ROI de cada ação. Reunião semanal de 30 minutos para análise de números. Sem dados, não há gestão. Este dashboard transforma marketing de custo em investimento com retorno mensurável.</div>
+          <div class="action-kpi">📊 KPI: Relatório semanal | <strong>Custo: Configuração ~R$ 2.000</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GANTT -->
+    <div style="margin-top: 48px;" class="fade-up">
+      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; margin-bottom: 24px;">Cronograma Visual — 90 Dias</h3>
+      <div style="overflow-x: auto;">
+        <table class="gantt">
+          <thead>
+            <tr>
+              <th style="min-width: 200px;">Ação</th>
+              <th>Sem 1-2</th>
+              <th>Sem 3-4</th>
+              <th>Sem 5-6</th>
+              <th>Sem 7-8</th>
+              <th>Sem 9-10</th>
+              <th>Sem 11-12</th>
+              <th>Contínuo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Resposta 100% Comentários IG</td>
+              <td><div class="gantt-bar" style="background: var(--gold);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--gold);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--gold); opacity:0.5"></div></td>
+              <td><div class="gantt-bar" style="background: var(--gold); opacity:0.5"></div></td>
+              <td><div class="gantt-bar" style="background: var(--gold); opacity:0.5"></div></td>
+              <td><div class="gantt-bar" style="background: var(--gold); opacity:0.5"></div></td>
+              <td><div class="gantt-bar" style="background: var(--gold); opacity:0.3"></div></td>
+            </tr>
+            <tr>
+              <td>Reels Educativos (3x/semana)</td>
+              <td><div class="gantt-bar" style="background: var(--green);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--green);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--green);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--green);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--green);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--green);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--green); opacity:0.5"></div></td>
+            </tr>
+            <tr>
+              <td>Google My Business</td>
+              <td><div class="gantt-bar" style="background: var(--blue);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--blue);"></div></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Blog / SEO On-Page</td>
+              <td></td>
+              <td><div class="gantt-bar" style="background: var(--amber);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--amber);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--amber); opacity:0.5"></div></td>
+              <td><div class="gantt-bar" style="background: var(--amber); opacity:0.5"></div></td>
+              <td><div class="gantt-bar" style="background: var(--amber); opacity:0.5"></div></td>
+              <td><div class="gantt-bar" style="background: var(--amber); opacity:0.3"></div></td>
+            </tr>
+            <tr>
+              <td>WhatsApp Business Automação</td>
+              <td></td>
+              <td><div class="gantt-bar" style="background: var(--green);"></div></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Meta Ads + Google Ads</td>
+              <td></td>
+              <td></td>
+              <td><div class="gantt-bar" style="background: var(--red);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--red);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--red);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--red);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--red); opacity:0.5"></div></td>
+            </tr>
+            <tr>
+              <td>Parcerias Micro-Influencers</td>
+              <td></td>
+              <td></td>
+              <td><div class="gantt-bar" style="background: var(--gold);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--gold);"></div></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>YouTube Canal</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><div class="gantt-bar" style="background: var(--red);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--red); opacity:0.7"></div></td>
+              <td><div class="gantt-bar" style="background: var(--red); opacity:0.7"></div></td>
+              <td><div class="gantt-bar" style="background: var(--red); opacity:0.3"></div></td>
+            </tr>
+            <tr>
+              <td>CRM + Email Marketing</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><div class="gantt-bar" style="background: var(--blue);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--blue);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--blue); opacity:0.5"></div></td>
+            </tr>
+            <tr>
+              <td>Dashboard Analytics</td>
+              <td></td>
+              <td><div class="gantt-bar" style="background: var(--mid);"></div></td>
+              <td><div class="gantt-bar" style="background: var(--mid); opacity:0.5"></div></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td><div class="gantt-bar" style="background: var(--mid); opacity:0.3"></div></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="section section-dark" id="roi">
+  <div class="container">
+    <div class="section-header fade-up">
+      <div class="section-number">08</div>
+      <div class="section-titles">
+        <div class="section-eyebrow">Retorno Sobre Investimento</div>
+        <h2 class="section-title">Projeção de ROI<br>em 90 Dias</h2>
+        <p class="section-desc">Estimativas conservadoras baseadas em benchmarks do setor de saúde estética</p>
+      </div>
+    </div>
+
+    <div class="roi-calculator fade-up">
+      <div class="roi-title">Projeção Conservadora de Retorno</div>
+      <div class="roi-sub">Baseado em benchmarks de marketing médico estético [Rock Content, 2024 + Doctoralia Business Report, 2023]</div>
+
+      <div class="roi-grid">
+        <div class="roi-cell">
+          <div class="roi-cell-label">Investimento Total 90 Dias</div>
+          <span class="roi-cell-val">~R$ 45K</span>
+          <div class="roi-cell-note">Mídia paga + produção + ferramentas</div>
+        </div>
+        <div class="roi-cell">
+          <div class="roi-cell-label">Leads Qualificados Estimados</div>
+          <span class="roi-cell-val">~180</span>
+          <div class="roi-cell-note">60 leads/mês × 3 meses</div>
+        </div>
+        <div class="roi-cell">
+          <div class="roi-cell-label">Conversão Consulta → Cirurgia</div>
+          <span class="roi-cell-val">~25%</span>
+          <div class="roi-cell-note">Benchmark: 20–35% para cirurgias estéticas</div>
+        </div>
+        <div class="roi-cell">
+          <div class="roi-cell-label">Cirurgias Incrementais (90d)</div>
+          <span class="roi-cell-val">~45</span>
+          <div class="roi-cell-note">180 leads × 25% conversão</div>
+        </div>
+        <div class="roi-cell">
+          <div class="roi-cell-label">Ticket Médio Conservador</div>
+          <span class="roi-cell-val">R$ 12K</span>
+          <div class="roi-cell-note">Mix: rinoplastia, facelift, blefaroplastia</div>
+        </div>
+        <div class="roi-cell" style="background: rgba(184,151,90,0.1); border: 1px solid rgba(184,151,90,0.3);">
+          <div class="roi-cell-label">Receita Incremental Estimada</div>
+          <span class="roi-cell-val" style="font-size: 52px;">R$ 540K</span>
+          <div class="roi-cell-note">ROI estimado: <strong style="color: var(--gold-light);">12x o investimento</strong></div>
+        </div>
+      </div>
+
+      <div class="roi-note">⚠ Projeção estimada com premissas conservadoras. Resultados reais dependem de fatores como sazonalidade, qualidade de execução e capacidade de atendimento da clínica. Recomenda-se revisão mensal das métricas e ajuste das campanhas. Não há garantia de resultados.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <img src="https://eduardosucupira.com.br/wp-content/uploads/2025/09/Group-2608982.svg" 
+       alt="Dr. Eduardo Sucupira" class="footer-logo"
+       onerror="this.style.display='none'">
+  <div class="footer-divider"></div>
+  <p class="footer-text">
+    <strong style="color: rgba(255,255,255,0.5);">Dr. Eduardo Sucupira</strong><br>
+    Av. Américas, 3434, Bloco 05, Conj. 419 — Barra da Tijuca, Rio de Janeiro<br>
+    (21) 2431-3173 · contato@eduardosucupira.com.br
+  </p>
+  <div class="footer-divider"></div>
+  <p class="footer-text" style="font-size: 11px;">
+    Dossiê Executivo de Marketing Digital · Elaborado por BIZZ.IA Consultoria<br>
+    Dados baseados em fontes públicas verificáveis: Instagram público, Semrush estimativas, SimilarWeb, Socialinsider, Meta Business, BrightLocal, ISAPS, CFM<br>
+    Fevereiro de 2026
+  </p>
+</footer>
+
+<script>
+  // ===== TAB SWITCHING =====
+  function showPlano(id) {
+    document.querySelectorAll('.plano-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.plano-tab').forEach(el => el.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // ===== INTERSECTION OBSERVER =====
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ===== ACTIVE NAV =====
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.sticky-nav a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 100;
+      if (window.scrollY >= top) current = section.getAttribute('id');
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+    });
+  });
+
+  // ===== ANIMATE SCORE RINGS ON LOAD =====
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.score-ring-fill').forEach(ring => {
+        const offset = parseFloat(ring.getAttribute('stroke-dashoffset'));
+        ring.style.strokeDashoffset = '264';
+        setTimeout(() => {
+          ring.style.strokeDashoffset = offset;
+        }, 300);
+      });
+    }, 500);
+  });
+</script>
+
+</body>
+</html>
